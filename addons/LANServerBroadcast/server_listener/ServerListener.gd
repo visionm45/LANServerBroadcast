@@ -19,16 +19,19 @@ func _init():
 	cleanUpTimer.autostart = true
 	cleanUpTimer.connect("timeout", self, 'clean_up')
 	add_child(cleanUpTimer)
+	
+
 
 func _ready():
 	knownServers.clear()
-	
+	socketUDP.set_broadcast_enabled (true)
 	if socketUDP.listen(listenPort) != OK:
 		print("GameServer LAN service: Error listening on port: " + str(listenPort))
 	else:
 		print("GameServer LAN service: Listening on port: " + str(listenPort))
 
 func _process(delta):
+	
 	if socketUDP.get_available_packet_count() > 0:
 		var serverIp = socketUDP.get_packet_ip()
 		var serverPort = socketUDP.get_packet_port()
