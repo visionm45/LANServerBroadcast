@@ -37,5 +37,6 @@ margin_top = 275.0
 margin_right = 512.0
 margin_bottom = 295.0
 text = "Browse LAN Games"
+
 [connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]
 [connection signal="pressed" from="BrowseButton" to="." method="_on_BrowseButton_pressed"]

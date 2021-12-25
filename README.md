@@ -42,3 +42,7 @@ func _on_ServerListener_new_server(serverInfo):
 To connect to a game, you just grab the IP and Port (*if it's not hard coded for your game*) from the serverInfo, and then perform a normal connection how ever you like.
 
 Lastly, when a server goes offline, you must remove it from the UI. You do this when you receive a `remove_server` signal, this is emitted when a server has not been seen for a period of time, which the server browser can specify on the `ServerListener` node via the exposed property: `server_cleanup_threshold`
+
+
+
+Note: Some Android devices might require the CHANGE_WIFI_MULTICAST_STATE permission to receive broadcast packets.

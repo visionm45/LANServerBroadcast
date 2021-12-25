@@ -24,7 +24,8 @@ func _init():
 
 func _ready():
 	knownServers.clear()
-	socketUDP.set_broadcast_enabled (true)
+	socketUDP.set_broadcast_enabled (true) #Note: Some Android devices might require the 
+	#CHANGE_WIFI_MULTICAST_STATE permission and this option to be enabled to receive broadcast packets too.
 	if socketUDP.listen(listenPort) != OK:
 		print("GameServer LAN service: Error listening on port: " + str(listenPort))
 	else:
